@@ -59,7 +59,7 @@
       }
       &.extraClass {
         .expander {
-          animation: grow 3s infinite alternate;
+          animation: grow 1s infinite alternate;
           background-color: #ffffff;
         }
         .circle {
@@ -84,7 +84,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(3); // Adjust to desired scale
+    transform: scale(2); // Adjust to desired scale
   }
   100% {
     transform: scale(1);

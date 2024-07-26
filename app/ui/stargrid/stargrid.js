@@ -21,7 +21,7 @@ const StarGrid = () => {
 
     const interval = setInterval(() => {
       setRandomIndices(generateRandomIndices(3));
-    }, 3000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
