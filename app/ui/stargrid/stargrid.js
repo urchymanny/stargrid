@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "./stargrid.module.scss";
@@ -16,24 +17,23 @@ const StarGrid = () => {
     return newRandomIndices;
   };
 
+  //
   useEffect(() => {
     setRandomIndices(generateRandomIndices(3));
+    setBiggerIndices(generateRandomIndices(200));
 
     const interval = setInterval(() => {
       setRandomIndices(generateRandomIndices(3));
     }, 1000);
 
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    setBiggerIndices(generateRandomIndices(200));
-
     const bigInterval = setInterval(() => {
-      setBiggerIndices(generateRandomIndices(200));
+      setBiggerIndices(generateRandomIndices(100));
     }, 5000);
 
-    return () => clearInterval(bigInterval);
+    return () => {
+      clearInterval(interval);
+      clearInterval(bigInterval);
+    };
   }, []);
 
   return (
